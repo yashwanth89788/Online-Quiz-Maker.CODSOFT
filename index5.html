@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QuizCraft – Online Quiz Maker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#43cea2,#185a9d);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  background:white;
+  width:90%;
+  max-width:900px;
+  border-radius:25px;
+  padding:40px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#185a9d;
+}
+
+.auth button{
+  margin-left:10px;
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
+  background:#185a9d;
+  color:white;
+  cursor:pointer;
+}
+
+section{
+  display:none;
+  margin-top:30px;
+}
+
+section.active{
+  display:block;
+}
+
+.hero{
+  text-align:center;
+}
+
+.hero h1{
+  font-size:42px;
+  color:#185a9d;
+}
+
+.hero p{
+  margin:15px 0 25px;
+}
+
+.actions button{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(to right,#43cea2,#185a9d);
+  color:white;
+  cursor:pointer;
+  margin:10px;
+}
+
+.quiz-list{
+  margin-top:30px;
+}
+
+.quiz-card{
+  background:#f4f9ff;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.quiz-card button{
+  margin-top:10px;
+  padding:8px 20px;
+  border:none;
+  border-radius:20px;
+  background:#43cea2;
+  color:white;
+  cursor:pointer;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+
+footer{
+  text-align:center;
+  margin-top:30px;
+  color:#555;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+  <div class="logo">QuizCraft</div>
+  <div class="auth">
+    <button onclick="showPage('home')">Home</button>
+  </div>
+</header>
+<section id="home" class="active hero">
+  <h1>Play. Create. Learn.</h1>
+  <p>Create quizzes or take quizzes made by others.</p>
+
+  <div class="actions">
+    <button onclick="showPage('create')">Create Quiz</button>
+    <button onclick="showPage('take')">Take Quiz</button>
+  </div>
+
+  <div class="quiz-list">
+    <h2>Available Quizzes</h2>
+
+    <div class="quiz-card">
+      <h3>General Knowledge</h3>
+      <button onclick="showPage('take')">Start</button>
+    </div>
+
+    <div class="quiz-card">
+      <h3>Web Development</h3>
+      <button onclick="showPage('take')">Start</button>
+    </div>
+  </div>
+</section>
+<section id="create">
+  <h2>Create Quiz</h2>
+  <input placeholder="Quiz Title">
+  <input placeholder="Question">
+  <input placeholder="Option A">
+  <input placeholder="Option B">
+  <input placeholder="Option C">
+  <input placeholder="Option D">
+  <input placeholder="Correct Answer (A/B/C/D)">
+  <br><br>
+  <button onclick="showPage('home')">Save Quiz</button>
+</section>
+<section id="take">
+  <h2>Quiz Question</h2>
+  <p>What does HTML stand for?</p>
+  <button>Hyper Text Markup Language</button><br><br>
+  <button>High Text Machine Language</button><br><br>
+  <button>Home Tool Markup Language</button><br><br>
+  <button onclick="showPage('result')">Submit</button>
+</section>
+<section id="result">
+  <h2>Quiz Completed</h2>
+  <p>Your Score: 1 / 1</p>
+  <button onclick="showPage('home')">Go Home</button>
+</section>
+
+<footer>
+  © 2025 QuizCraft | Online Quiz Maker
+</footer>
+
+</div>
+
+<script>
+function showPage(page){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+}
+</script>
+
+</body>
+</html>
